@@ -13,6 +13,7 @@ struct HomeView: View {
     @State var message: String = "Type to generate an image!"
     @State var image: UIImage?
     @State var isLoading = false
+    @State var loaderMessage = "Generating an image"
     
     
     var body: some View {
@@ -29,7 +30,7 @@ struct HomeView: View {
             Spacer()
             
             if isLoading{
-                ProgressView("Generating an image")
+                ProgressView(loaderMessage)
                     .tint(Color("icon"))
                     .controlSize(.large)
                     .font(.body)
@@ -50,6 +51,10 @@ struct HomeView: View {
                     
                     Button{
                         print("Downloading...")
+                        saveImage(albumName: "Dall-E-2", image: image)
+                        self.isLoading = true
+                        self.loaderMessage = "Downloading..."
+                        
                     }label: {
                         Image(systemName: "square.and.arrow.down")
                             .font(.system(size: 25))
@@ -87,6 +92,7 @@ struct HomeView: View {
                     let grab = searchText
                     if !grab.trimmingCharacters(in: .whitespaces).isEmpty{
                         self.isLoading = true
+                        self.loaderMessage = "Generating an image"
                         Task{
                             let result = await viewModel.generateImage(prompt: grab)
                             
@@ -115,6 +121,20 @@ struct HomeView: View {
         .background(Color("bg"))
         .onAppear{
             viewModel.setup()
+        }
+    }
+    // save image into photo libra
+    func saveImage(albumName:String, image:UIImage){
+        let album = CustomAlbum(name: albumName)
+        album.save(image: image){ (result) in
+            switch result{
+            case .success(_):
+                print("Succesfully save photo to album \"\(albumName)\"")
+                self.isLoading = false
+            case .failure(let err):
+                print(err.localizedDescription)
+                self.isLoading = false
+            }
         }
     }
     
