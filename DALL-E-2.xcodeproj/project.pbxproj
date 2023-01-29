@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5E0BD5A72986353D001ED42D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BD5A62986353D001ED42D /* ViewModel.swift */; };
 		5E0BD5AA298635F4001ED42D /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0BD5A9298635F4001ED42D /* OpenAIKit */; };
+		5E0BD5AD29868397001ED42D /* CustomAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BD5AB29868397001ED42D /* CustomAlbum.swift */; };
+		5E0BD5AE29868397001ED42D /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BD5AC29868397001ED42D /* Error+.swift */; };
 		5EF6C8B32983EB200088DB19 /* DALL_E_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C8B22983EB200088DB19 /* DALL_E_2App.swift */; };
 		5EF6C8B52983EB200088DB19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C8B42983EB200088DB19 /* HomeView.swift */; };
 		5EF6C8B72983EB210088DB19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EF6C8B62983EB210088DB19 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		5E0BD5A62986353D001ED42D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5E0BD5AB29868397001ED42D /* CustomAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlbum.swift; sourceTree = "<group>"; };
+		5E0BD5AC29868397001ED42D /* Error+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error+.swift"; sourceTree = "<group>"; };
 		5EF6C8AF2983EB200088DB19 /* DALL-E-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DALL-E-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF6C8B22983EB200088DB19 /* DALL_E_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DALL_E_2App.swift; sourceTree = "<group>"; };
 		5EF6C8B42983EB200088DB19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -36,6 +40,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E0BD5AF29868E16001ED42D /* SavePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				5E0BD5AC29868397001ED42D /* Error+.swift */,
+				5E0BD5AB29868397001ED42D /* CustomAlbum.swift */,
+			);
+			path = SavePhoto;
+			sourceTree = "<group>";
+		};
 		5EF6C8A62983EB200088DB19 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +68,7 @@
 		5EF6C8B12983EB200088DB19 /* DALL-E-2 */ = {
 			isa = PBXGroup;
 			children = (
+				5E0BD5AF29868E16001ED42D /* SavePhoto */,
 				5EF6C8C02983EB920088DB19 /* ViewModel */,
 				5EF6C8B22983EB200088DB19 /* DALL_E_2App.swift */,
 				5EF6C8B42983EB200088DB19 /* HomeView.swift */,
@@ -156,6 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0BD5AD29868397001ED42D /* CustomAlbum.swift in Sources */,
+				5E0BD5AE29868397001ED42D /* Error+.swift in Sources */,
 				5EF6C8B52983EB200088DB19 /* HomeView.swift in Sources */,
 				5E0BD5A72986353D001ED42D /* ViewModel.swift in Sources */,
 				5EF6C8B32983EB200088DB19 /* DALL_E_2App.swift in Sources */,
@@ -290,6 +306,8 @@
 				DEVELOPMENT_TEAM = DM9ZJ89CX6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -319,6 +337,8 @@
 				DEVELOPMENT_TEAM = DM9ZJ89CX6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
