@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E0BD5A72986353D001ED42D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BD5A62986353D001ED42D /* ViewModel.swift */; };
+		5E0BD5AA298635F4001ED42D /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5E0BD5A9298635F4001ED42D /* OpenAIKit */; };
 		5EF6C8B32983EB200088DB19 /* DALL_E_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C8B22983EB200088DB19 /* DALL_E_2App.swift */; };
 		5EF6C8B52983EB200088DB19 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6C8B42983EB200088DB19 /* HomeView.swift */; };
 		5EF6C8B72983EB210088DB19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EF6C8B62983EB210088DB19 /* Assets.xcassets */; };
@@ -14,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E0BD5A62986353D001ED42D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5EF6C8AF2983EB200088DB19 /* DALL-E-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DALL-E-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF6C8B22983EB200088DB19 /* DALL_E_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DALL_E_2App.swift; sourceTree = "<group>"; };
 		5EF6C8B42983EB200088DB19 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0BD5AA298635F4001ED42D /* OpenAIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +55,7 @@
 		5EF6C8B12983EB200088DB19 /* DALL-E-2 */ = {
 			isa = PBXGroup;
 			children = (
-				5EF6C8C02983EB920088DB19 /* New Group */,
+				5EF6C8C02983EB920088DB19 /* ViewModel */,
 				5EF6C8B22983EB200088DB19 /* DALL_E_2App.swift */,
 				5EF6C8B42983EB200088DB19 /* HomeView.swift */,
 				5EF6C8B62983EB210088DB19 /* Assets.xcassets */,
@@ -68,11 +72,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		5EF6C8C02983EB920088DB19 /* New Group */ = {
+		5EF6C8C02983EB920088DB19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5E0BD5A62986353D001ED42D /* ViewModel.swift */,
 			);
-			path = "New Group";
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +96,9 @@
 			dependencies = (
 			);
 			name = "DALL-E-2";
+			packageProductDependencies = (
+				5E0BD5A9298635F4001ED42D /* OpenAIKit */,
+			);
 			productName = "DALL-E-2";
 			productReference = 5EF6C8AF2983EB200088DB19 /* DALL-E-2.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 5EF6C8A62983EB200088DB19;
+			packageReferences = (
+				5E0BD5A8298635F4001ED42D /* XCRemoteSwiftPackageReference "OpenAIKit" */,
+			);
 			productRefGroup = 5EF6C8B02983EB200088DB19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF6C8B52983EB200088DB19 /* HomeView.swift in Sources */,
+				5E0BD5A72986353D001ED42D /* ViewModel.swift in Sources */,
 				5EF6C8B32983EB200088DB19 /* DALL_E_2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +359,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E0BD5A8298635F4001ED42D /* XCRemoteSwiftPackageReference "OpenAIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marcodotio/OpenAIKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E0BD5A9298635F4001ED42D /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E0BD5A8298635F4001ED42D /* XCRemoteSwiftPackageReference "OpenAIKit" */;
+			productName = OpenAIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5EF6C8A72983EB200088DB19 /* Project object */;
 }
