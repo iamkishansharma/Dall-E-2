@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  DALL-E-2
 //
 //  Created by Kishan Kr Sharma on 1/27/23.
@@ -21,10 +21,16 @@ struct HomeView: View {
                 Spacer()
                 
                 if isLoading{
-                    Text("Loading...")
+                    ProgressView("Generating an image")
+                        .tint(Color("icon"))
+                        .controlSize(.large)
+                        .foregroundColor(.gray)
                         .font(.body)
-                        .fontWeight(.semibold)
-        
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(12)
+                        .shadow(radius: 5)
+                    
                 }else{
                     if let image = image{
                         Image(uiImage: image)
@@ -41,59 +47,59 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack(alignment: .center, spacing: 2){
-                                Button{
-                                    print("regenerate")
-                                }label: {
-                                    Image(systemName: "camera")
-                                        .font(.system(size: 25))
-                                        .foregroundColor(Color("icon"))
-                                }
-                                .padding(5)
-                                .cornerRadius(100)
-                                TextField("Type here ...", text: $searchText)
-                                    .padding(.horizontal, 10)
-                                    .padding(.vertical, 10)
-                                    .background(Color("textBox"))
-                                    .cornerRadius(100)
-                                    .background(RoundedRectangle(cornerRadius: 100, style: .continuous)
-                                        .stroke(.gray.opacity(0.6), lineWidth: 1.5))
+                    Button{
+                        print("regenerate")
+                    }label: {
+                        Image(systemName: "camera")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color("icon"))
+                    }
+                    .padding(5)
+                    .cornerRadius(100)
+                    TextField("Type here ...", text: $searchText)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 10)
+                        .background(Color("textBox"))
+                        .cornerRadius(100)
+                        .background(RoundedRectangle(cornerRadius: 100, style: .continuous)
+                            .stroke(.gray.opacity(0.6), lineWidth: 1.5))
+                    
+                    Button{
+                        
+                        self.isLoading = true
+                        if !searchText.trimmingCharacters(in: .whitespaces).isEmpty{
+                            Task{
+                                let result = await viewModel.generateImage(prompt: searchText)
                                 
-                                Button{
-                                    
-                                    self.isLoading = true
-                                    if !searchText.trimmingCharacters(in: .whitespaces).isEmpty{
-                                        Task{
-                                            let result = await viewModel.generateImage(prompt: searchText)
-                                            
-                                            self.isLoading = false
-                                            
-                                            if result == nil {
-                                                print("Failed to get an Image")
-                                                self.message = "Failed to generate an image!"
-                                            }
-                                            
-                                            self.image = result
-                                            
-                                        }
-                                    }
-                                }label: {
-                                    Image(systemName: "paperplane")
-                                        .font(.system(size: 25))
-                                        .foregroundColor(Color("icon"))
+                                self.isLoading = false
+                                
+                                if result == nil {
+                                    print("Failed to get an Image")
+                                    self.message = "Failed to generate an image!"
                                 }
-                                .padding(5)
-                                .cornerRadius(100)
+                                
+                                self.image = result
+                                
+                            }
+                        }
+                    }label: {
+                        Image(systemName: "paperplane")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color("icon"))
+                    }
+                    .padding(5)
+                    .cornerRadius(100)
                 }
             }
-                .onAppear{
-                    viewModel.setup()
-                }
+            .onAppear{
+                viewModel.setup()
+            }
             .navigationTitle("Dall-E 2")
             .navigationBarTitleDisplayMode(.inline)
         }
         .navigationBarHidden(true)
     }
-        
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

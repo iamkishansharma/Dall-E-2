@@ -40,7 +40,7 @@ final class MyViewModel : ObservableObject{
             let data = result.data[0].image
             // decode image from base64
             let image = try openAi.decodeBase64Image(data)
-
+            
             return image
         }
         catch{
